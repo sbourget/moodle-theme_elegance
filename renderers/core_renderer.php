@@ -435,4 +435,138 @@ class theme_elegance_core_renderer extends theme_bootstrap_core_renderer {
             return false;
         }
     }
+    
+    /**
+     * Returns the URL for the favicon and touch icons
+     *
+     * @since Moodle 2.5.1 2.6
+     * @return string The favicon URL
+     */
+    public function favicon() {
+        $icons = '';
+    
+        // iOS Webapp Capable
+        // https://developer.apple.com/library/ios/documentation/AppleApplications/Reference/SafariWebContent/ConfiguringWebApplications/ConfiguringWebApplications.html
+        $ioswebapp = html_writer::empty_tag('meta', array('name' => 'apple-mobile-web-app-capable', 'content' => 'yes'));
+        $icons .= $ioswebapp . "\r";
+        
+        // Android Webapp Capable
+        // https://developer.chrome.com/multidevice/android/installtohomescreen
+        $androidwebapp = html_writer::empty_tag('meta', array('name' => 'mobile-web-app-capable', 'content' => 'yes'));
+        $icons .= $androidwebapp . "\r";
+        
+        
+        // iOS Webapp Status Bar Style
+        // https://developer.apple.com/library/ios/documentation/AppleApplications/Reference/SafariWebContent/ConfiguringWebApplications/ConfiguringWebApplications.html
+        $iosstatusbar = html_writer::empty_tag('meta', array('name' => 'apple-mobile-web-app-status-bar-style', 'content' => 'black'));
+        $icons .= $iosstatusbar . "\r";
+        
+        // iOS Startup Splash
+        // https://developer.apple.com/library/ios/documentation/AppleApplications/Reference/SafariWebContent/ConfiguringWebApplications/ConfiguringWebApplications.html
+        $iosstartup = $this->pix_url('startup', 'theme');
+        $iosstartup = html_writer::empty_tag('link', array('rel' => 'apple-touch-startup-image', 'href' => $iosstartup));
+        $icons .= $iosstartup . "\r";
+        
+        // iOS, Android Browser, Blackberry
+        // https://developer.apple.com/library/ios/documentation/AppleApplications/Reference/SafariWebContent/ConfiguringWebApplications/ConfiguringWebApplications.html
+        $ios57 = $this->pix_url('apple-touch-icon-57x57', 'theme');
+        $ios57 = html_writer::empty_tag('link', array('rel' => 'apple-touch-icon', 'sizes' => '57x57', 'href' => $ios57));
+        $icons .= $ios57 . "\r";
+        
+        $ios114 = $this->pix_url('apple-touch-icon-114x114', 'theme');
+        $ios114 = html_writer::empty_tag('link', array('rel' => 'apple-touch-icon', 'sizes' => '114x114', 'href' => $ios114));
+        $icons .= $ios114 . "\r";
+        
+        $ios72 = $this->pix_url('apple-touch-icon-72x72', 'theme');
+        $ios72 = html_writer::empty_tag('link', array('rel' => 'apple-touch-icon', 'sizes' => '72x72', 'href' => $ios72));
+        $icons .= $ios72 . "\r";
+        
+        $ios144 = $this->pix_url('apple-touch-icon-144x144', 'theme');
+        $ios144 = html_writer::empty_tag('link', array('rel' => 'apple-touch-icon', 'sizes' => '144x144', 'href' => $ios144));
+        $icons .= $ios144 . "\r";
+
+        $ios60 = $this->pix_url('apple-touch-icon-60x60', 'theme');
+        $ios60 = html_writer::empty_tag('link', array('rel' => 'apple-touch-icon', 'sizes' => '60x60', 'href' => $ios60));
+        $icons .= $ios60 . "\r";
+        
+        $ios120 = $this->pix_url('apple-touch-icon-120x120', 'theme');
+        $ios120 = html_writer::empty_tag('link', array('rel' => 'apple-touch-icon', 'sizes' => '120x120', 'href' => $ios120));
+        $icons .= $ios120 . "\r";
+        
+        $ios76 = $this->pix_url('apple-touch-icon-76x76', 'theme');
+        $ios76 = html_writer::empty_tag('link', array('rel' => 'apple-touch-icon', 'sizes' => '76x76', 'href' => $ios76));
+        $icons .= $ios76 . "\r";
+        
+        $ios152 = $this->pix_url('apple-touch-icon-152x152', 'theme');
+        $ios152 = html_writer::empty_tag('link', array('rel' => 'apple-touch-icon', 'sizes' => '152x152', 'href' => $ios152));
+        $icons .= $ios152 . "\r";
+
+        // Chrome for Android
+        // https://developer.chrome.com/multidevice/android/installtohomescreen
+        $favicon196 = $this->pix_url('favicon-196x196', 'theme');
+        $favicon196 = html_writer::empty_tag('link', array('rel' => 'icon', 'type' => 'image/png', 'href' => $favicon196, 'sizes' => '196x196'));
+        $icons .= $favicon196 . "\r";
+        
+        // Opera Speed Dial <= v12
+        // http://htmlpreview.github.io/?https://github.com/operasoftware/devopera-static-backup/blob/master/http/dev.opera.com/articles/view/opera-speed-dial-enhancements/index.html
+        $favicon160 = $this->pix_url('favicon-160x160', 'theme');
+        $favicon160 = html_writer::empty_tag('link', array('rel' => 'icon', 'type' => 'image/png', 'href' => $favicon160, 'sizes' => '160x160'));
+        $icons .= $favicon160 . "\r";
+        
+        // Google TV
+        // https://developers.google.com/tv/web/docs/design_for_tv#favicons
+        $favicon96 = $this->pix_url('favicon-96x96', 'theme');
+        $favicon96 = html_writer::empty_tag('link', array('rel' => 'icon', 'type' => 'image/png', 'href' => $favicon96, 'sizes' => '96x96'));
+        $icons .= $favicon96 . "\r";
+        
+        // “Normal” browsers
+        // http://www.w3.org/2005/10/howto-favicon
+        $favicon16 = $this->pix_url('favicon-16x16', 'theme');
+        $favicon16 = html_writer::empty_tag('link', array('rel' => 'shortcut icon', 'href' => $favicon16, 'sizes' => '16x16'));
+        $icons .= $favicon16 . "\r";
+        
+        // Safari Mac
+        // http://enrappture.com/hd-favicons/
+        $favicon32 = $this->pix_url('favicon-32x32', 'theme');
+        $favicon32 = html_writer::empty_tag('link', array('rel' => 'shortcut icon', 'href' => $favicon32, 'sizes' => '32x32'));
+        $icons .= $favicon32 . "\r";
+
+        // IE <= 10 Fallback
+        // http://www.jonathantneal.com/blog/understand-the-favicon/
+        $ie10fallback = $this->pix_url('favicon', 'theme');
+        $ie10fallback = html_writer::empty_tag('link', array('rel' => 'shortcut icon', 'href' => $ie10fallback));
+        $ie10fallback = '<!--[if IE]>' . $ie10fallback . '<![endif]-->';
+        $icons .= $ie10fallback . "\r";
+        
+        // Windows 8 Tile Background Color
+        // http://msdn.microsoft.com/en-us/library/ie/dn455106%28v=vs.85%29.aspx
+        $mstilecolor = html_writer::empty_tag('meta', array('name' => 'msapplication-TileColor', 'content' => '#0098e0'));
+        $icons .= $mstilecolor . "\r";
+        
+        // Windows 8, IE 10, Opera Coast
+        // http://operacoast.com/developer#icon
+        $mstileimage = $this->pix_url('mstile-144x144', 'theme');
+        $mstileimage = html_writer::empty_tag('meta', array('name' => 'msapplication-TileImage', 'content' => $mstileimage));
+        $icons .= $mstileimage . "\r";
+        
+        // Windows 8.1 & IE 11
+        // http://msdn.microsoft.com/en-us/library/ie/dn255024%28v=vs.85%29.aspx
+        $ms70 = $this->pix_url('smalltile', 'theme');
+        $ms70 = html_writer::empty_tag('meta', array('name' => 'msapplication-square70x70logo', 'content' => $ms70));
+        $icons .= $ms70 . "\r";
+        
+        $ms150 = $this->pix_url('mediumtile', 'theme');
+        $ms150 = html_writer::empty_tag('meta', array('name' => 'msapplication-square150x150logo', 'content' => $ms150));
+        $icons .= $ms150 . "\r";
+        
+        $mswide = $this->pix_url('widetile', 'theme');
+        $mswide = html_writer::empty_tag('meta', array('name' => 'msapplication-wide310x150logo', 'content' => $mswide));
+        $icons .= $mswide . "\r";
+        
+        $ms310 = $this->pix_url('largetile', 'theme');
+        $ms310 = html_writer::empty_tag('meta', array('name' => 'msapplication-square310x310logo', 'content' => $ms310));
+        $icons .= $ms310 . "\r";
+        
+        return $icons;
+    }
 }
