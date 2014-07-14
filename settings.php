@@ -122,7 +122,7 @@ defined('MOODLE_INTERNAL') || die;
     $setting = new admin_setting_heading($name, $heading, $information);
     $temp->add($setting);
     
-    // Moodle Mobile CSS File
+    // Enable Moodle Mobile Settings
     $name = 'theme_elegance/enablemoodlemobilecss';
     $title = get_string('enablemoodlemobilecss', 'theme_elegance');
     $description = get_string('enablemoodlemobilecssdesc', 'theme_elegance');
@@ -130,10 +130,8 @@ defined('MOODLE_INTERNAL') || die;
     $setting->set_updatedcallback('theme_reset_all_caches');
     $temp->add($setting);
 
-    // We only want to output category icon options if the parent setting is enabled
     $enablemoodlemobilecss = (!empty($PAGE->theme->settings->enablemoodlemobilecss));
     if($enablemoodlemobilecss) {
-    
         // Custom Moodle Mobile CSS file.
         $name = 'theme_elegance/moodlemobilecss';
         $title = get_string('moodlemobilecss', 'theme_elegance');
@@ -144,7 +142,6 @@ defined('MOODLE_INTERNAL') || die;
         $setting = new admin_setting_configtextarea($name, $title, $description, $default);
         $setting->set_updatedcallback('theme_reset_all_caches');
         $temp->add($setting);
-    
     }
 
     $ADMIN->add('theme_elegance', $temp);
