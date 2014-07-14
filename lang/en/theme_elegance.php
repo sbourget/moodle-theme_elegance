@@ -377,3 +377,9 @@ $string['moodlemobilecssdefault'] = '/* Header */
     /* Pop-ups */
     #app-dialog > div { background: inherit; }';
 $string['moodlemobilecssdesc'] = 'The Moodle Mobile Application allows you to define an external stylesheet to style the application.  Whatever CSS rules you add to this textarea will be displayed in the official Moodle Mobile application.  Simply copy the URL below and store it in the "mobilecssurl" setting under "Web Services -> Mobile".<br/>Please note:  This setting can also be used to style your Moodle site, so use with caution.';
+
+$string['mobilewebapp'] = 'Web App';
+$string['mobilewebappdesc'] = 'The settings in the section below affect your site on mobile devices.';
+
+$string['enablemobilewebapp'] = 'Enable Mobile Web App Features';
+$string['enablemobilewebappdesc'] = 'If enabled you will be add to set the web app functionality of your site on mobile devices.';

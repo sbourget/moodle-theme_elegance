@@ -144,6 +144,26 @@ defined('MOODLE_INTERNAL') || die;
         $temp->add($setting);
     }
 
+    // Moodle Mobile Section
+    $name = 'theme_elegance_mobilewebapp';
+    $heading = get_string('mobilewebapp', 'theme_elegance');
+    $information = get_string('mobilewebappdesc' , 'theme_elegance');
+    $setting = new admin_setting_heading($name, $heading, $information);
+    $temp->add($setting);
+    
+    // Enable Moodle Mobile Settings
+    $name = 'theme_elegance/enablemobilewebapp';
+    $title = get_string('enablemobilewebapp', 'theme_elegance');
+    $description = get_string('enablemobilewebappdesc', 'theme_elegance');
+    $setting = new admin_setting_configcheckbox($name, $title, $description, 0);
+    $setting->set_updatedcallback('theme_reset_all_caches');
+    $temp->add($setting);
+
+    $enablewebapp = (!empty($PAGE->theme->settings->enablemobilewebapp));
+    if($enablewebapp) {
+
+    }
+
     $ADMIN->add('theme_elegance', $temp);
 
     /* Color and Logo Settings */
