@@ -383,3 +383,16 @@ $string['mobilewebappdesc'] = 'The settings in the section below affect your sit
 
 $string['enablemobilewebapp'] = 'Enable Mobile Web App Features';
 $string['enablemobilewebappdesc'] = 'If enabled you will be able to set the web app functionality of your site on mobile devices.';
+
+$string['ioswebapp'] = 'iOS Web App Capable';
+$string['ioswebappdesc'] = 'Enable your site to be displayed like a web app on iOS devices.';
+
+$string['iosstatus'] = 'iOS Status Bar';
+$string['iosstatusdesc'] = 'Change the display of the status bar on iOS.  Leave this blank to use the default status bar.';
+$string['iosstatusdefault'] = 'black';
+
+$string['iosstartup'] = 'iOS Startup Image';
+$string['iosstartupdesc'] = 'You can specify a startup or "splash" image when your site is launched on iOS.';
+
+$string['androidwebapp'] = 'Android Web App Capable';
+$string['androidwebappdesc'] = 'Enable your site to be displayed like a web app on Android devices.';

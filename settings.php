@@ -144,14 +144,14 @@ defined('MOODLE_INTERNAL') || die;
         $temp->add($setting);
     }
 
-    // Moodle Mobile Section
+    // Web App Section
     $name = 'theme_elegance_mobilewebapp';
     $heading = get_string('mobilewebapp', 'theme_elegance');
     $information = get_string('mobilewebappdesc' , 'theme_elegance');
     $setting = new admin_setting_heading($name, $heading, $information);
     $temp->add($setting);
     
-    // Enable Moodle Mobile Settings
+    // Enable Web App Settings
     $name = 'theme_elegance/enablemobilewebapp';
     $title = get_string('enablemobilewebapp', 'theme_elegance');
     $description = get_string('enablemobilewebappdesc', 'theme_elegance');
@@ -161,7 +161,37 @@ defined('MOODLE_INTERNAL') || die;
 
     $enablewebapp = (!empty($PAGE->theme->settings->enablemobilewebapp));
     if($enablewebapp) {
+        // Enable iOS Web App Settings
+        $name = 'theme_elegance/ioswebapp';
+        $title = get_string('ioswebapp', 'theme_elegance');
+        $description = get_string('ioswebappdesc', 'theme_elegance');
+        $setting = new admin_setting_configcheckbox($name, $title, $description, 0);
+        $setting->set_updatedcallback('theme_reset_all_caches');
+        $temp->add($setting);
 
+         // iOS Status Bar
+        $name = 'theme_elegance/iosstatus';
+        $title = get_string('iosstatus', 'theme_elegance');
+        $description = get_string('iosstatusdesc', 'theme_elegance');
+        $default = get_string('iosstatusdefault', 'theme_elegance');
+        $setting = new admin_setting_configtext($name, $title, $description, $default);
+        $temp->add($setting);
+
+    	// iOS Splash Image
+    	$name = 'theme_elegance/iosstartup';
+    	$title = get_string('iosstartup', 'theme_elegance');
+    	$description = get_string('iosstartupdesc', 'theme_elegance');
+    	$setting = new admin_setting_configstoredfile($name, $title, $description, 'iosstartup');
+    	$setting->set_updatedcallback('theme_reset_all_caches');
+    	$temp->add($setting);
+    
+        // Enable Android Web App Settings
+        $name = 'theme_elegance/androidwebapp';
+        $title = get_string('androidwebapp', 'theme_elegance');
+        $description = get_string('androidwebappdesc', 'theme_elegance');
+        $setting = new admin_setting_configcheckbox($name, $title, $description, 0);
+        $setting->set_updatedcallback('theme_reset_all_caches');
+        $temp->add($setting);
     }
 
     $ADMIN->add('theme_elegance', $temp);
