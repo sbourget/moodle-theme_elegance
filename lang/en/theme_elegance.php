@@ -365,5 +365,9 @@ $string['socialnetworksicondescriptionskype'] = 'Call us on Skype';
 
 /* Webapp Settings */
 $string['webappsettings'] = 'Web App Settings';
-$string['webappsettingssub'] = 'Enable Web App Features';
-$string['webappsettingsdesc'] = 'Enable settings below to extend web app functionality of your Moodle site.';
+
+$string['moodlemobile'] = 'Moodle Mobile';
+$string['moodlemobiledesc'] = 'The settings in the section below affect the official Moodle Mobile app.';
+
+$string['enablemoodlemobilecss'] = 'Enable Moodle Mobile CSS';
+$string['enablemoodlemobilecssdesc'] = 'If enabled you will be able to add custom CSS rules to style the official Moodle Mobile app.';

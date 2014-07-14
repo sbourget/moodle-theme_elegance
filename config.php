@@ -80,10 +80,17 @@ if ((!empty($THEME->settings->enablecustomlogin)) && ($THEME->settings->enablecu
   $loginsheet='login2';
 }
 
-if ('ltr' === get_string('thisdirection', 'langconfig')) {
-    $THEME->sheets = array('font-awesome', 'google-fonts', $categorysheet, $loginsheet, 'nprogress', 'elegance', 'mobile');
+// Have they enabled the Mobile CSS sheet?
+if((!empty($THEME->settings->enablemoodlemobilecss)) && ($THEME->settings->enablemoodlemobilecss == '1')) {
+    $mobile = 'mobile';
 } else {
-    $THEME->sheets = array('tinymce-rtl', 'font-awesome', 'google-fonts', $categorysheet, $loginsheet, 'nprogress', 'elegance', 'mobile');
+    $mobile = '';
+}
+
+if ('ltr' === get_string('thisdirection', 'langconfig')) {
+    $THEME->sheets = array('font-awesome', 'google-fonts', $categorysheet, $loginsheet, 'nprogress', 'elegance', $mobile);
+} else {
+    $THEME->sheets = array('tinymce-rtl', 'font-awesome', 'google-fonts', $categorysheet, $loginsheet, 'nprogress', 'elegance', $mobile);
 }
 
 $THEME->layouts = array(
