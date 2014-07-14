@@ -127,6 +127,17 @@ defined('MOODLE_INTERNAL') || die;
     $temp->add($setting);
 
     $ADMIN->add('theme_elegance', $temp);
+    
+    /* Webapp Settings */
+    $temp = new admin_settingpage('theme_elegance_webapp', get_string('webappsettings', 'theme_elegance'));
+
+    $name = 'theme_elegance_webapp';
+    $heading = get_string('webappsettingssub', 'theme_elegance');
+    $information = get_string('webappsettingsdesc' , 'theme_elegance');
+    $setting = new admin_setting_heading($name, $heading, $information);
+    $temp->add($setting);
+
+    $ADMIN->add('theme_elegance', $temp);
 
     /* Color and Logo Settings */
     $temp = new admin_settingpage('theme_elegance_colors', get_string('colorsettings', 'theme_elegance'));

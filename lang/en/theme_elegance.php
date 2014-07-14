@@ -362,3 +362,8 @@ $string['socialnetworksicondescriptiontumblr'] = 'Find us on Tumblr';
 $string['socialnetworksicondescriptioninstagram'] = 'Find us on Instagram';
 $string['socialnetworksicondescriptionvk'] = 'Like us on VK';
 $string['socialnetworksicondescriptionskype'] = 'Call us on Skype';
+
+/* Webapp Settings */
+$string['webappsettings'] = 'Web App Settings';
+$string['webappsettingssub'] = 'Enable Web App Features';
+$string['webappsettingsdesc'] = 'Enable settings below to extend web app functionality of your Moodle site.';
