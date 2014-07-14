@@ -382,4 +382,4 @@ $string['mobilewebapp'] = 'Web App';
 $string['mobilewebappdesc'] = 'The settings in the section below affect your site on mobile devices.';
 
 $string['enablemobilewebapp'] = 'Enable Mobile Web App Features';
-$string['enablemobilewebappdesc'] = 'If enabled you will be add to set the web app functionality of your site on mobile devices.';
+$string['enablemobilewebappdesc'] = 'If enabled you will be able to set the web app functionality of your site on mobile devices.';
